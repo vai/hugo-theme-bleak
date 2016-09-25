@@ -80,7 +80,7 @@ jQuery(function($) {
 	   ========================================================================== */
 
 	function grid() {
-		$('.post-list .post .post-image img').each(function() {
+		$('.article .post-image img').each(function() {
 			var img = $(this);
 			img.load(function() {
 				img.parents('.post-image').css({
@@ -90,10 +90,10 @@ jQuery(function($) {
 			});
 		});
 		var postlist = $('.post-list').masonry({
-			itemSelector			: '.post',
+			itemSelector			: '.article',
 			isAnimated				: false,
 			gutter					: 0,
-			columnWidth				: 1,
+			columnWidth				: 2,
 			transitionDuration		: 0
 		}).imagesLoaded().always(function() {
 			postlist.masonry('layout');
@@ -290,8 +290,8 @@ jQuery(function($) {
 	    }
 	});
 
-	$('body').on('click', '#post-index .post .js-ajax-link', function() {
-		var post = $(this).parents('.post');
+	$('body').on('click', '#post-index .js-ajax-link', function() {
+		var post = $(this).parents('.article');
 		post.addClass('initial');
 		setTimeout(function() {
 			post.addClass('active');
