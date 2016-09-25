@@ -574,6 +574,39 @@ body {
 		}
 	}
 
+	.nav-menu-left {
+		float: left;
+
+		&:before {
+			clear: both;
+			content: '';
+			display: table;
+		}
+
+		a {
+			display: block;
+			height: 1em;
+			line-height: 1em;
+			padding: 1.5em;
+			text-align: center;
+			float: left;
+			cursor: pointer;
+
+			&:hover,
+			&:focus {
+				background: $color-gray-90;
+			}
+
+			i:before {
+				margin: auto;
+			}
+		}
+
+		.rss {}
+
+		.menu {}
+	}
+
 	.nav-menu {
 		float: right;
 
@@ -1074,7 +1107,7 @@ body {
    Post
    ========================================================================== */
 
-.post {
+.post, .article {
 	position: relative;
 	z-index: 20;
 
@@ -1145,6 +1178,7 @@ body {
 }
 
 
+
 /* ==========================================================================
    Index
    ========================================================================== */
@@ -1171,7 +1205,7 @@ body {
 .post-list {
 	position: relative;
 
-	.post {
+	.post, article, .article {
 		float: left;
 		width: 33.30%;
 
@@ -1243,7 +1277,7 @@ body {
 			animation-delay: 1.2s;
 		}
 
-		&.post.featured {
+		&.article.featured {
 
 			.inner {
 				background: $color-gray-15;
@@ -1386,7 +1420,8 @@ body {
 
 		.post-more {
 			display: block;
-			margin-top: 1.5em;
+			margin-top: 2em;
+			text-align: right;
 
 			a {
 				display: inline-block;
@@ -1685,6 +1720,7 @@ body {
 	margin: 4em auto 2em;
 	padding: 0;
 	position: relative;
+	clear: both;
 
 	.pagination-item {
 		position: relative;
