@@ -93,7 +93,7 @@ jQuery(function($) {
 			itemSelector			: '.article',
 			isAnimated				: false,
 			gutter					: 0,
-			columnWidth				: 2,
+			columnWidth				: 1,
 			transitionDuration		: 0
 		}).imagesLoaded().always(function() {
 			postlist.masonry('layout');
@@ -108,13 +108,13 @@ jQuery(function($) {
 	function highlight() {
 		$('pre code').each(function(i, e) {
 			hljs.highlightBlock(e);
-			var code = $(this);
-			var lines = code.html().split(/\n/).length;
-			var numbers = [];
-			for (i = 1; i < lines; i++) {
-				numbers += '<span class="line">' + i + '</span>';
-			}
-			code.parent().addClass('codeblock').append('<div class="lines">' + numbers + '</div>');
+			// var code = $(this);
+			// var lines = code.html().split(/\n/).length;
+			// var numbers = [];
+			// for (i = 1; i < lines; i++) {
+			// 	numbers += '<span class="line">' + i + '</span>';
+			// }
+			// code.parent().addClass('codeblock').append('<div class="lines">' + numbers + '</div>');
 		});
 	}
 	highlight();
