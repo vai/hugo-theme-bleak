@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{.Site.LanguageCode}}">
+<html lang="{{.Site.LanguageCode}}" class=" {{.Site.Params.variant}}">
 
     <head>
 
@@ -91,31 +91,22 @@
         <div id="ajax-container">
           <nav id="nav" class="nav">
             <div class="nav-logo">
-              <a href="{{ .Site.BaseURL }}">
-      			  	{{ with .Site.Params }}
-      			  	{{ if .logo }}
-      			  	<img src="{{ .logo }}" alt="Logo"/>
-      			  	{{ else if .gravatarHash }}
-      				  <img src="https://www.gravatar.com/avatar/{{ .gravatarHash }}.png?s=32" alt="Logo"/>
-      			  	{{ end }}
-              </a>
-			  	    {{ end }}
-              
+                {{ partial "toplogo.html" . }}
             </div>
             <nav class="nav-menu-left">
-                  <a href="/post/">Posts</a>
-                  <a href="/tool/">Tools</a>
-                  <a href="/book/">Books</a>
+                {{ partial "topnav.html" . }}
             </nav>
             <div class="nav-menu">
-              <a class="rss" href="{{.RSSLink}}">
-                <i class="icon-rss"></i>
-              </a>
+                {{ partial "topcontext.html" . }}
+                <a class="rss" href="{{.RSSLink}}">
+                    <i class="icon-rss"></i>
+                </a>
                 {{ if .IsPage }}
                 <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
                 {{ end }}
                 {{ if .Site.Menus.main }}
                 <a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
                 {{ end }}
+                
             </div>
           </nav>
