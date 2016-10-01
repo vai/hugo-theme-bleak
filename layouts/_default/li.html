@@ -11,11 +11,11 @@
 		</figure>
 		{{ end }}
 		<span class="post-meta">
-			{{ if eq .Section "post" }}
-			<span class="post-date">{{ .Date.Format "2 Jan 2006" }} </span>
-			{{ else }}
-			<span class="post-date">{{ .Date.Format "2 Jan 2006" }} &ndash; <span style="color: #ccc">{{ .Section }}</span></span>
+			{{ if ne .Section "post" }}
+			<a class="section-link" href="/{{ .Section }}/">{{ .Section }}</a>
+			&mdash; 
 			{{ end }}
+			<span class="post-date">{{ .Date.Format "2 Jan 2006" }} </span>
 		</span>
 		<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
 		<p class="post-excerpt">{{ .Description }} </p>
