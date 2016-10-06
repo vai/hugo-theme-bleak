@@ -132,53 +132,55 @@ jQuery(function($) {
 	   Initialize and load Disqus
 	   ========================================================================== */
 
-	function comments() {
-		if (typeof disqus_shortname === 'undefined' || !document.getElementById('disqus_thread')) {
-			$('.post-comments').css({
-				'display' : 'none'
-			});
-		} else {
-			if (window.DISQUS) {
-				return DISQUS.reset({
-					reload: true,
-					config: function () {
-						this.page.identifier = location.pathname;
-						this.page.url = location.origin + location.pathname;
-					}
-				});
-			}
+	// function comments() {
+	// 	if (typeof disqus_shortname === 'undefined' || !document.getElementById('disqus_thread')) {
+	// 		$('.post-comments').css({
+	// 			'display' : 'none'
+	// 		});
+	// 	} else {
+	// 		if (window.DISQUS) {
+	// 			return DISQUS.reset({
+	// 				reload: true,
+	// 				config: function () {
+	// 					this.page.identifier = location.pathname;
+	// 					this.page.url = location.origin + location.pathname;
+	// 				}
+	// 			});
+	// 		}
 
-			$.ajax({
-				type: "GET",
-				url: "//" + disqus_shortname + ".disqus.com/embed.js",
-				dataType: "script",
-				cache: true
-			});
-		}
-	}
-	comments();
+	// 		$.ajax({
+	// 			type: "GET",
+	// 			url: "//" + disqus_shortname + ".disqus.com/embed.js",
+	// 			dataType: "script",
+	// 			cache: true
+	// 		});
+	// 	}
+	// }
+	// comments();
 
   /* ==========================================================================
 	   Initialize and load Gist
 	   ========================================================================== */
 
-	function gist() {
-    $('[data-gist-id]').gist();
-	}
-	gist();
+	// function gist() {
+    // $('[data-gist-id]').gist();
+	// }
+	// gist();
 
 	/* ==========================================================================
 	   Reload all scripts after AJAX load
 	   ========================================================================== */
 
 	function reload() {
-		grid();
+		
 		ajaxLinkClass();
 		highlight();
+		grid();
 		video();
-		comments();
-    gist();
+		// comments();
+    	// gist();
 		currentMenuFix();
+		
 	}
 
 	/* ==========================================================================
@@ -187,10 +189,10 @@ jQuery(function($) {
 
 	function ajaxLinkClass() {
 
-		$('a[href^="' + window.location.origin + '"], .post-image a, .post-title a, .post-more a, .post-meta a, .post-tags a, #pagination a').each(function() {
+		$('a[href^="' + window.location.origin + '"], .post-image a, .post-title a, .post-more a, .post-meta a, .post-tags a, #pagination a, a.menu, a.menu-optional, a.menu-logo').each(function() {
 			var link = $(this);
 
-			if(!link.hasClass('rss')) {
+			if(!link.hasClass('rss') && (link.attr('href') != null || link.attr('href') != undefined)) {
 				link.addClass('js-ajax-link');
 
 				if (link.attr('href').indexOf('page') > -1) {
@@ -198,6 +200,10 @@ jQuery(function($) {
 				}
 
 				if (link.attr('href') == window.location.origin) {
+					link.addClass('js-show-index');
+				}
+				
+				if (link.attr('href') == "/") {
 					link.addClass('js-show-index');
 				}
 
