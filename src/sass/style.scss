@@ -8,8 +8,8 @@ $breakpoint-phone:		30em;
 $breakpoint-tablet:		50em;
 $breakpoint-desktop:	70em;
 
-$color-green-85: #95D936;
-$color-green-72: #7EB72D;
+$color-green-85: #D99536;
+$color-green-72: #B77E2D;
 
 $color-yellow-100:	#FFC336;
 
@@ -33,6 +33,7 @@ $color-primary-active:		$color-green-72; /* Dark */
 $color-accent-default:		#983c5a; /* Light */
 $color-accent-dim:			rgba(152, 60, 90, 0.6);
 $color-accent-active:		#a84c6a; /* Dark */
+$color-accent-active-fade:	rgba(152, 60, 90, 0.4); 
 
 
 /* ==========================================================================
@@ -616,6 +617,17 @@ body {
 		.menu {
 			@media only screen and (max-width: $breakpoint-phone) {
 				display: none;
+			}
+			&:active {
+				background: $color-accent-active-fade;
+			}
+		}
+		.menu-optional {
+			@media only screen and (max-width: $breakpoint-tablet) {
+				display: none;
+			}
+			&:active {
+				background: $color-accent-active-fade;
 			}
 		}
 	}
