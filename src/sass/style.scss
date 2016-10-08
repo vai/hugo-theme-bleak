@@ -1,6 +1,7 @@
 /* ==========================================================================
    Includes
    ========================================================================== */
+
 @import "fonts";
 @import "icons";
 
@@ -44,7 +45,7 @@ $color-accent-active-fade:	rgba(152, 60, 90, 0.4);
 html {}
 
 body {
-	font: 300 1em / 1.5em 'Merriweather Sans', sans-serif;
+	font: 400 1.05em / 1.66em 'Noto Sans', sans-serif;
 	color: $color-gray-40;
 }
 
@@ -64,6 +65,9 @@ a {
 	&:focus {
 		color: $color-gray-15;
 	}
+}
+.no-break {
+	white-space: nowrap;
 }
 .post-content a {
 	border-bottom: 2px solid $color-primary-default;
@@ -109,7 +113,13 @@ h4 {
 }
 
 p {
-	margin: 2em auto;
+	margin: 1.15em auto;
+	@media only screen and (min-width: $breakpoint-tablet) {
+		margin-bottom: 1.2em auto;
+	}
+	@media only screen and (min-width: $breakpoint-desktop) {
+		margin-bottom: 1.34em auto;
+	}
 }
 
 ul {
@@ -1153,9 +1163,8 @@ body {
 	.post-meta {
 		display: block;
 		font-size: 0.75em;
-		line-height: 1.334em;
-		font-weight: 400;
-		margin-bottom: 1.334em;
+		line-height: 2em;
+		font-weight: 300;
 
 		a {
 			color: inherit;
@@ -1167,6 +1176,17 @@ body {
 			&:focus {
 				border-bottom-color: rgba(0,0,0,0.4);
 			}
+		}
+
+		.post-date {
+			white-space: nowrap;
+		}
+
+		@media only screen and (min-width: $breakpoint-tablet) {
+			margin-bottom: 0.66em;
+		}
+		@media only screen and (min-width: $breakpoint-desktop) {
+			margin-bottom: 1.334em;
 		}
 	}
 
@@ -1197,8 +1217,20 @@ body {
 	}
 
 	.post-header {
-		padding: 4em 0 0;
-		margin-bottom: 3em;
+		padding: 1em 0 0;
+		
+		@media only screen and (min-width: $breakpoint-phone) {
+			padding: 1em 0 0;
+			margin-bottom: 0.5em;
+		}
+		@media only screen and (min-width: $breakpoint-tablet) {
+			padding: 2em 0 0;
+			margin-bottom: 2em;
+		}
+		@media only screen and (min-width: $breakpoint-desktop) {
+			padding: 4em 0 0;
+			margin-bottom: 3em;
+		}
 	}
 }
 
