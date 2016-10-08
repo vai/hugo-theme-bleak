@@ -12,15 +12,17 @@
   				<h1 class="post-title">{{ .Title }}</h1>
 				  <span class="post-meta">
 					<span class="reading-time"><span class="estimated-reading-time">About a {{ .ReadingTime }} minute read, or </span><span class="word-count">{{ .WordCount }}</span> words</span>
-					&mdash;  
-					{{ if eq .Section "post" }}
-						<span class="post-date">Posted {{ .Date.Format "2 Jan 2006" }} </span>
-					{{ else }}
-						<span class="post-date">
-							Posted {{ .Date.Format "2 Jan 2006" }} in 
-							<a class="section-link" href="/{{ .Section }}/">{{ .Section }}</a>
-						</span>
-					{{ end }}
+					<span class="no-break">
+						&ndash;  
+						{{ if eq .Section "post" }}
+							<span class="post-date">Posted {{ .Date.Format "2 Jan 2006" }} </span>
+						{{ else }}
+							<span class="post-date">
+								Posted {{ .Date.Format "2 Jan 2006" }} in 
+								<a class="section-link" href="/{{ .Section }}/">{{ .Section }}</a>
+							</span>
+						{{ end }}
+					</span>
   				</span>
   			</header>
 
